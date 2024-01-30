@@ -19,7 +19,9 @@ class AddToHistoryController extends GetxController {
     final history = HistoryModel(
         qty: foods.length,
         items: List.from(foods),
-        orderDate: DateTime.now().toString());
+        orderDate: DateTime.now().toString(),
+        total: totalamount
+        );
 
     await _productStorage.setDataHistory(history);
     getAllHistory();

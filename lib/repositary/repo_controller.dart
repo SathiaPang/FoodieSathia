@@ -49,6 +49,7 @@ class ProductStorage {
   Future<void> setDataHistory(HistoryModel history) async {
     final allfood = await getHistory();
     allfood.add(history);
+    saveHistory(allfood);
   }
 
   // Save History
