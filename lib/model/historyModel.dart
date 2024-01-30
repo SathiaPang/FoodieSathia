@@ -6,8 +6,10 @@ class HistoryModel {
   final int qty;
   final List<FoodRepo> items;
   final String orderDate;
+  final double total;
 
   HistoryModel({
+    required this.total,
     required this.qty,
     required this.items,
     required this.orderDate,
@@ -26,6 +28,7 @@ class HistoryModel {
       orderDate: json["orderDate"] ?? "",
       qty: json['qty'] ?? 0,
       items: details ?? [],
+      total: json['total'] ?? 0,
     );
   }
   Map<String, dynamic> toMap() {
@@ -33,6 +36,7 @@ class HistoryModel {
       "orderDate": orderDate,
       "qty": qty,
       "items": items.map((e) => e.toMap()).toList(),
+      "total": total,
     };
   }
 
