@@ -17,7 +17,7 @@ class CustomButtons extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: EdgeInsets.all(Get.width * 0.02), // Adjust padding as needed
+          padding: EdgeInsets.all(Get.width * 0.01), // Adjust padding as needed
           child: Container(
             height: Get.height * 0.1, // Adjust the height as needed
             width: double.infinity,

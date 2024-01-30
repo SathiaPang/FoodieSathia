@@ -26,8 +26,7 @@ class TrackOrder extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 40),
                         child: Center(
-                          child: Image.asset(
-                              'lib/assets/images/drink/delivery-food.gif'),
+                          child: Image.asset('assets/images/cute-adorable.gif'),
                         ),
                       ),
                     ),
@@ -93,7 +92,7 @@ class TrackOrder extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Uncomment the following line if you want to navigate to a new screen.
-        Get.to(Location());
+        Get.to(() => Location());
       },
       child: SizedBox(
         width: Get.width * 0.8, // Responsive width

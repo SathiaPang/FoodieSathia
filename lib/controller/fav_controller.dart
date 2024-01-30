@@ -98,4 +98,6 @@ class FavController extends GetxController {
       count--;
     }
   }
+
+  //
 }

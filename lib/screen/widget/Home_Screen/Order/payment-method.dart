@@ -2,7 +2,6 @@ import 'package:FoodieSathia/screen/widget/Home_Screen/Order/select_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
 
@@ -118,7 +117,6 @@ class _PaymentState extends State<Payment> {
                               value: 2, // Different value for the second Radio
                               groupValue: selectedValue,
                               activeColor: Colors.red,
-
                               onChanged: (int? value) {
                                 setState(() {
                                   selectedValue = value;
@@ -169,7 +167,6 @@ class _PaymentState extends State<Payment> {
                               value: 3, // Different value for the second Radio
                               groupValue: selectedValue,
                               activeColor: Colors.red,
-
                               onChanged: (int? value) {
                                 setState(() {
                                   selectedValue = value;
@@ -187,7 +184,7 @@ class _PaymentState extends State<Payment> {
             SizedBox(height: Get.height / 10),
             GestureDetector(
               onTap: () {
-                Get.to(creditCard());
+                Get.to(() => creditCard());
               },
               child: SizedBox(
                 child: Container(

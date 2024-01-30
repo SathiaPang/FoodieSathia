@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 // import 'package:flutter/material.dart';
 import 'package:FoodieSathia/data/data.dart';
+import 'package:FoodieSathia/model/historyModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductStorage {
@@ -43,6 +45,27 @@ class ProductStorage {
   }
 
   // history
+  // Set 1 by 1
+  Future<void> setDataHistory(HistoryModel history) async {
+    final allfood = await getHistory();
+    allfood.add(history);
+  }
+
+  // Save History
+  Future<bool> saveHistory(List<HistoryModel> historyitem) async {
+    final pref = await _getSharedPreferences();
+    final List<String> tmplist =
+        historyitem.map((e) => jsonEncode(e.toMap())).toList();
+    return pref.setStringList("HistoryItem", tmplist);
+  }
+
+  // Get
+  Future<List<HistoryModel>> getHistory() async {
+    final pref = await _getSharedPreferences();
+    List<String> rawlist = pref.getStringList("HistoryItem") ?? [];
+    print(rawlist);
+    return rawlist.map((e) => HistoryModel.fromJson(jsonDecode(e))).toList();
+  }
 
   // Future<List<HistoryOrder>> getAllHistoryOrders() async {
   //   final pref = await _getSharedPreferences();

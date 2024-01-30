@@ -15,7 +15,7 @@ class Item_View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         Get.to(() => DetailScreen(
@@ -29,13 +29,12 @@ class Item_View extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               height: Get.height * 0.4,
               width: Get.width * 0.5,
               margin: EdgeInsets.symmetric(
-                  horizontal: Get.width / 60), // Adjust the width as needed
+                  horizontal: 0), // Adjust the width as needed
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.white,
@@ -49,11 +48,10 @@ class Item_View extends StatelessWidget {
                 ],
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: CircleAvatar(
-                      radius: 100,
+                      radius: 80,
                       backgroundImage: AssetImage(food.image),
                     ),
                   ),
@@ -93,22 +91,23 @@ class Item_View extends StatelessWidget {
                       )
                     ],
                   ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '\$ ',
-                          style: TextStyle(
-                              fontSize: 20, color: Constants.primaryColor),
-                        ),
-                        TextSpan(
-                          text: food.price.toString(),
-                          style: TextStyle(
-                              fontSize: 30, color: Constants.primaryColor),
-                        ),
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '\$ ',
+                            style: TextStyle(fontSize: 20, color: Colors.red),
+                          ),
+                          TextSpan(
+                            text: food.price.toString(),
+                            style: TextStyle(fontSize: 30, color: Colors.black),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
