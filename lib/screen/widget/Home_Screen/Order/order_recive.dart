@@ -1,11 +1,15 @@
+import 'package:FoodieSathia/constant/constants.dart';
+import 'package:FoodieSathia/controller/history_controller.dart';
+import 'package:FoodieSathia/screen/widget/Menu_List/Category/item_view_cart.dart';
 import 'package:FoodieSathia/screen/widget/Menu_List/navigator_Bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class Location extends StatelessWidget {
-  const Location({super.key});
+  Location({super.key});
 
+  final Item_Controller _item_controller = Get.find();
+  final AddToHistoryController _controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +17,7 @@ class Location extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('lib/assets/images/drink/google-maps-pin.gif'),
+              image: AssetImage('assets/images/google-maps-pin.gif'),
               fit: BoxFit.cover,
             ),
           ),
@@ -44,6 +48,9 @@ class Location extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
+                      SizedBox(
+                        height: 20,
+                      ),
                       Container(
                           width: double.infinity,
                           height: Get.height / 10,
@@ -59,59 +66,59 @@ class Location extends StatelessWidget {
                               ),
                             ],
                           ),
-                          child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Row(children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              height: Get.height / 15,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  'assets/images/image-acc.jpg',
+                                  width: 80,
+                                ),
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 5),
-                                  height: Get.height / 15,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                        'lib/assets/images/heathom.png'),
+                                Text(
+                                  'Trevor Sathia',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
+                                ),
+                                Text(
+                                  'Your food man',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 14),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              width: Get.width / 4,
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(
+                                  Get.width * 0.05), // Adjusted margin value
+                              width: Get.width / 8,
+                              height: Get.height / 15,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 2.0, color: Constants.primaryColor),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    10.0,
                                   ),
                                 ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Panha SOUT',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                    Text(
-                                      'Your food man',
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 14),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: Get.width / 4,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.all(Get.width *
-                                      0.05), // Adjusted margin value
-                                  width: Get.width / 8,
-                                  height: Get.height / 15,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        width: 2.0, color: Colors.red),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(
-                                        10.0,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Icon(
-                                    Icons.phone,
-                                    size: Get.width * 0.07,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                              ])),
+                              ),
+                              child: Icon(
+                                Icons.phone,
+                                size: Get.width * 0.07,
+                                color: Constants.primaryColor,
+                              ),
+                            ),
+                          ])),
                       SizedBox(
                         height: Get.height / 50,
                       ),
@@ -171,7 +178,7 @@ class Location extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.pin_drop_outlined,
-                              color: Colors.red,
+                              color: Constants.primaryColor,
                               size: 30,
                             ),
                             SizedBox(
@@ -190,14 +197,16 @@ class Location extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           // Uncomment the following line if you want to navigate to a new screen.
-                          Get.to(NavigatorBar());
+                          _controller.SaveHistoryData(
+                              _item_controller.cartList);
+                          Get.to(() => NavigatorBar());
                         },
                         child: SizedBox(
                           width: Get.width * 0.8, // Responsive width
                           height: Get.height * 0.06, // Responsive height
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.red,
+                              color: Constants.primaryColor,
                               borderRadius: BorderRadius.circular(
                                   Get.width * 0.03), // Responsive border radius
                             ),

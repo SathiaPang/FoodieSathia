@@ -45,7 +45,7 @@ class creditCard extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              _buildDoneButton(color: Colors.red,text: Text('Done'))
+              _buildDoneButton(color: Colors.red, text: Text('Done'))
             ],
           ),
         ),
@@ -103,12 +103,12 @@ class creditCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Image.asset(
-          "lib/assets/images/sim.png",
+          "assets/images/sim.png",
           height: 50,
           width: 58,
         ),
         Image.asset(
-          "lib/assets/images/mastercard.png",
+          "assets/images/mastercard.png",
           height: 50,
           width: 50,
         ),
@@ -169,7 +169,7 @@ class creditCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Uncomment the following line if you want to navigate to a new screen.
-        Get.to(TrackOrder());
+        Get.to(() => TrackOrder());
       },
       child: SizedBox(
         width: Get.width * 0.8, // Responsive width

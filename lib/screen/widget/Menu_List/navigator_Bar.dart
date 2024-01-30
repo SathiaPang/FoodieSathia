@@ -5,12 +5,9 @@ import 'package:FoodieSathia/screen/widget/Menu_List/Notification/nofica_screen.
 import 'package:FoodieSathia/screen/widget/Menu_List/Profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:individual_project/screen/widget/Home_Screen/home_Screen.dart';
-//import 'package:individual_project/screen/widget/Menu_List/Notification/nofica_screen.dart';
+
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-//import 'package:individual_project/screen/widget/Menu_List/Category/cart.dart';
-//import 'package:individual_project/screen/widget/Menu_List/Favorite/favorite.dart';
-//import 'package:individual_project/screen/widget/Menu_List/Profile/profile_screen.dart';
+
 
 class NavigatorBar extends StatelessWidget {
   const NavigatorBar({Key? key}) : super(key: key);

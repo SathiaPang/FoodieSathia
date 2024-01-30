@@ -14,6 +14,12 @@ class Profilea_Screen extends StatelessWidget {
       appBar: AppBar(
         title: Text('My Profile'),
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Get.back();
+          },
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -30,7 +36,7 @@ class Profilea_Screen extends StatelessWidget {
                     height: Get.height * 0.5,
                     width: double.infinity,
                     child: Image.asset(
-                      'lib/assets/images/drink/gif-2.gif',
+                      'assets/images/profile_background.gif',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -39,21 +45,13 @@ class Profilea_Screen extends StatelessWidget {
                       padding: EdgeInsets.all(Get.width * 0.01),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Get.width * 0.1),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: Get.width * 0.005,
-                            blurRadius: Get.width * 0.01,
-                            offset: Offset(0, Get.width * 0.015),
-                          ),
-                        ],
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(Get.width * 0.1),
                         child: SizedBox.fromSize(
                           size: Size.fromRadius(Get.width * 0.15),
                           child: Image.asset(
-                            'lib/assets/images/heathom.png',
+                            'assets/images/image-acc.jpg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -62,6 +60,9 @@ class Profilea_Screen extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 15,
             ),
             EditProfile(),
             SizedBox(

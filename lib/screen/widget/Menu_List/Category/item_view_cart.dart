@@ -134,9 +134,9 @@ class _Item_ListState extends State<Item_List> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      // width: Get.width * 0.3,
-                      child: Image.asset(foodRepo.image),
+                    CircleAvatar(
+                      radius: 70,
+                      backgroundImage: AssetImage(foodRepo.image),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -163,14 +163,6 @@ class _Item_ListState extends State<Item_List> {
                                   color: Colors.black,
                                 ),
                               ),
-                              // WidgetSpan(
-                              //     child: Text(
-                              //   "${foodRepo.qty}\u00D7",
-                              //   style: TextStyle(
-                              //     color: Colors.red,
-                              //     fontSize: Get.height * 0.025,
-                              //   ),
-                              // )),
                             ],
                           ),
                         ),
